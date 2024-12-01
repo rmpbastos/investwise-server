@@ -734,7 +734,10 @@ app.post('/api/predict', async (req, res) => {
       console.log("Received payload for prediction:", req.body);
 
       // Forward the request to the Flask API
-      const flaskResponse = await axios.post('http://127.0.0.1:5001/predict', req.body);
+      // const flaskResponse = await axios.post('http://127.0.0.1:5001/predict', req.body);
+
+      // Deployment
+      const flaskResponse = await axios.post('https://investwise-flask.onrender.com/predict', req.body);
 
       console.log("Prediction result from Flask API:", flaskResponse.data);
 
